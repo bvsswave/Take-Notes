@@ -20,6 +20,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
+// creates new note
+
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
     function createNewNote(body, notesArray) {
@@ -46,6 +48,8 @@ app.get('/notes', (req, res) => {
         res.json(newNote);
     });
     
+    // deletes note
+    
     function deleteNote(id, notesArray) {
         for (let i = 0; i < notesArray.length; i++) {
             let note = notesArray[i];
@@ -70,4 +74,3 @@ app.get('/notes', (req, res) => {
     app.listen(PORT, () => {
         console.log(`API server now on port ${PORT}!`);
     });
-    
